@@ -37,7 +37,7 @@ namespace Gifter
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CoffeeShop v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Gifter v1"));
 
                 // Do not block requests while in development
                 app.UseCors(options =>
