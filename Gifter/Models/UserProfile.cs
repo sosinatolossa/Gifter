@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Gifter.Models
@@ -18,5 +19,7 @@ namespace Gifter.Models
 
         [Required]
         public DateTime DateCreated { get; set; }
+        public int PostId { get; set; }
+        public List<Post> UserPosts { get; set; }
     }
 }
