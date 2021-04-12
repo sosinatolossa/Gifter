@@ -56,5 +56,17 @@ namespace Gifter.Controllers
             _userProfileRepository.Delete(id);
             return NoContent();
         }
+
+        [HttpGet("GetUserProfileWithPosts/{id}")]
+        public IActionResult GetUserProfileWithPosts(int id)
+        {
+            var userProfile = _userProfileRepository.GetUserProfileWithPosts(id);
+            if (userProfile == null)
+            {
+                return NotFound();
+            }
+            return Ok(userProfile);
+        }
+        
     }
 }
