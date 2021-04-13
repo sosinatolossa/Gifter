@@ -17,7 +17,7 @@ namespace Gifter.Repositories
                 {
                     cmd.CommandText = @"
                           SELECT up.Name, up.Bio, up.Email, up.DateCreated AS UserProfileDateCreated,
-                       up.ImageUrl AS UserProfileImageUrl, up.Id AS UserProfileId, up.PostUserProfileId
+                       up.ImageUrl AS UserProfileImageUrl, up.Id AS UserProfileId
 
                   FROM UserProfile up
                     order by up.Name";
