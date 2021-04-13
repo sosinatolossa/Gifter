@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Gifter.Repositories;
 using Gifter.Models;
+using System;
 
 namespace Gifter.Controllers
 {
@@ -79,6 +80,12 @@ namespace Gifter.Controllers
         public IActionResult Search(string q, string y, bool sortDesc)
         {
             return Ok(_postRepository.Search(q, y, sortDesc));
+        }
+
+        [HttpGet("hottest")]
+        public IActionResult Hottest(DateTime x)
+        {
+            return Ok(_postRepository.Hottest(x));
         }
     }
 }
