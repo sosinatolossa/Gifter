@@ -12,7 +12,7 @@ namespace Gifter.Repositories
         List<Post> GetAllWithComments();
         Post GetById(int id);
         Post GetPostByIdWithComments(int id);
-        List<Post> Search(string criterion, string criterion2, bool sortDescending);
+        List<Post> Search(string criterion, bool sortDescending);
         List<Post> Hottest(DateTime date);
         void Update(Post post);
     }

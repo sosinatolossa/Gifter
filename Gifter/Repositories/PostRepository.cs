@@ -5,7 +5,6 @@ using Microsoft.Extensions.Configuration;
 using Gifter.Models;
 using Gifter.Utils;
 
-
 namespace Gifter.Repositories
 {
     public class PostRepository : BaseRepository, IPostRepository
@@ -59,7 +58,6 @@ namespace Gifter.Repositories
                 }
             }
         }
-
 
         public List<Post> GetAllWithComments()
         {
@@ -181,7 +179,6 @@ namespace Gifter.Repositories
                 }
             }
         }
-
 
         public Post GetPostByIdWithComments(int id)
         {
@@ -313,7 +310,7 @@ namespace Gifter.Repositories
             }
         }
 
-        public List<Post> Search(string criterion, string criterion2, bool sortDescending)
+        public List<Post> Search(string criterion, bool sortDescending)
         {
             using (var conn = Connection)
             {
@@ -328,7 +325,7 @@ namespace Gifter.Repositories
                         up.ImageUrl AS UserProfileImageUrl
                     FROM Post p 
                         LEFT JOIN UserProfile up ON p.UserProfileId = up.id
-                    WHERE p.Title LIKE @Criterion AND p.Caption LIKE @Criterion2";
+                    WHERE p.Title LIKE @Criterion OR p.Caption LIKE @Criterion";
 
                     if (sortDescending)
                     {
@@ -341,7 +338,6 @@ namespace Gifter.Repositories
 
                     cmd.CommandText = sql;
                     DbUtils.AddParameter(cmd, "@Criterion", $"%{criterion}%");
-                    DbUtils.AddParameter(cmd, "@Criterion2", $"%{criterion2}");
                     var reader = cmd.ExecuteReader();
 
                     var posts = new List<Post>();
@@ -389,8 +385,6 @@ namespace Gifter.Repositories
                     LEFT JOIN UserProfile up ON p.UserProfileId = up.id
                     WHERE p.DateCreated >= @Date";
 
-                   
-
                     cmd.CommandText = sql;
                     DbUtils.AddParameter(cmd, "@Date", $"{date}");
                     var reader = cmd.ExecuteReader();
@@ -422,7 +416,6 @@ namespace Gifter.Repositories
                     return posts;
                 }
             }
-        }
-        
+        }    
     }
 }

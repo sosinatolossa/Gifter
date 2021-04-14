@@ -77,7 +77,7 @@ export const PostForm = () => {
     return (
         <>
             <form className="postForm">
-                <h2 className="postForm__title">"Add new post</h2>
+                <h2 className="postForm__title">Add new post</h2>
 
                 <fieldset>
                     <div className="form-group">
